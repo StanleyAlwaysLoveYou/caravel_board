@@ -1,11 +1,11 @@
-export PATH=$PATH:/bin:/usr/local/bin/:../../venv/bin:/usr/bin/:.
+#export PATH=$PATH:/bin:/usr/local/bin/:../../venv/bin:/usr/bin/:.
 
 # --- automatically set ---
 #DEV=/dev/cu.usbmodem33203
 #DEV=/dev/ttyACM0
 
 #FLASH=/media/efabless/PYBFLASH/
-FLASH?=//Volumes/PYBFLASH/
+FLASH=//Volumes/PYBFLASH/
 DEV=$(shell mpremote connect list | grep STLink | cut -f 1 -d ' ')
 #COPY_CMD=rshell --port ${DEV} cp
 COPY_CMD=cp
