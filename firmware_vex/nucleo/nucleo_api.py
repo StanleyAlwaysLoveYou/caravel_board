@@ -96,6 +96,7 @@ class Test:
         self, test_name=None, passing_criteria=[], voltage=1.6, sram=1, config_mode=True
     ):
         self.rstb = Dio("MR", True)
+        self.tim3 = Dio("TIM3_CH2", True)
         # self.gpio_mgmt_in = Dio("IO_0", False)
         self.gpio_mgmt_in = Dio("IO_37", False)
         if config_mode:
@@ -137,11 +138,11 @@ class Test:
         self.gpio_mgmt_out.send_pulses(2)
 
     def apply_reset(self):
-        # print("   applying reset on channel 0 device 1")
+        print("   applying reset on channel 0 device 1")
         self.rstb.set_value(0)
 
     def release_reset(self):
-        # print("   releasing reset on channel 0 device 1")
+        print("   releasing reset on channel 0 device 1")
         self.rstb.set_value(1)
 
     def flash(self, hex_file):
@@ -216,6 +217,18 @@ class Test:
     def release_pins(self):
         for i in range(38):
             Dio(f"IO_{i}")
+
+    def tim3_clock_on(self, freq):
+
+            period = 1000 / freq  #(in ms)
+            pulse = period / 2
+
+            print(f"tim3 clock (period = {period} ms) on!")
+            while 1:
+                self.tim3.set_value(1)
+                pyb.delay(int(pulse))
+                self.tim3.set_value(0)
+                pyb.delay(int(pulse))
 
 
 class ProgSupply:

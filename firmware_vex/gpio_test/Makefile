@@ -1,5 +1,5 @@
 
-TOOLCHAIN_PATH=/usr/local/bin/
+TOOLCHAIN_PATH=/opt/homebrew/bin/
 #TOOLCHAIN_PATH=/opt/riscv32imc/bin/
 #TOOLCHAIN_PATH=/ef/apps/bin/
 #TOOLCHAIN_PATH=/usr/bin/

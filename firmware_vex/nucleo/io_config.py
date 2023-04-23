@@ -476,11 +476,12 @@ def run_flash_caravel(v=1.6):
     test.powerup_sequence()
     erase()
     if flash(f"firmware.hex"):
-        print("status Good")
+        print("status Good!!")
     else:
         print("failed!")
     test.powerup_sequence()
     test.release_reset()
+    test.tim3_clock_on(1)
 
 
 def run_sanity_check():

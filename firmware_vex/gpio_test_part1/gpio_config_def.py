@@ -1,0 +1,1 @@
+../nucleo/gpio_config_def_part1.py
